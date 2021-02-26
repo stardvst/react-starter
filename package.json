@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.jsx",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode development"
+    "start": "npm run watch:css && webpack-dev-server --mode development",
+    "build": "npm run watch:css && webpack --mode development",
+    "watch:css": "postcss src/css/tailwind.css -o src/css/main.css"
   },
   "author": "",
   "license": "ISC",
@@ -22,8 +23,12 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "autoprefixer": "^10.2.4",
+    "postcss": "^8.2.6",
+    "postcss-cli": "^8.3.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-hot-loader": "^4.13.0"
+    "react-hot-loader": "^4.13.0",
+    "tailwindcss": "^2.0.3"
   }
 }
