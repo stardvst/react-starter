@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.jsx",
   "scripts": {
-    "start": "npm run watch:css && webpack-dev-server --mode development --open",
-    "build": "npm run watch:css && webpack --mode development",
-    "watch:css": "postcss src/css/tailwind.css -o src/css/main.css"
+    "start": "npm run build-css && webpack-dev-server --mode development --open",
+    "build": "npm run build-css && webpack --mode development",
+    "build-css": "tailwindcss build src/index.css -o public/style.css"
   },
   "author": "",
   "license": "ISC",
@@ -20,7 +20,6 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^1.0.1",
     "postcss": "^8.2.6",
-    "postcss-cli": "^8.3.1",
     "style-loader": "^0.23.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
     "webpack": "^4.46.0",
