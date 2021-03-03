@@ -2,13 +2,13 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/index.jsx",
+  entry: "./src/index.tsx",
   mode: "development",
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
+        test: /\.(js|jsx|tsx)$/,
+        exclude: /(node_modules)/,
         loader: "babel-loader",
         options: { presets: ["@babel/env"] },
       },
@@ -18,7 +18,7 @@ module.exports = {
       },
     ],
   },
-  resolve: { extensions: ["*", ".js", ".jsx"] },
+  resolve: { extensions: ["*", ".js", ".jsx", ".ts", ".tsx"] },
   output: {
     path: path.resolve(__dirname, "dist/"),
     publicPath: "/dist/",
@@ -31,4 +31,5 @@ module.exports = {
     hotOnly: true,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
+  devtool: "eval-source-map",
 };
